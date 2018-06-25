@@ -1,5 +1,6 @@
 <p id="notice"><%= notice %></p>
 <h1><%= t ".user" %></h1>
+<%= will_paginate %>
 <table>
   <thead>
     <tr>
@@ -17,10 +18,13 @@
         <td><%= user.password_digest %></td>
         <td><%= link_to t(".show"), user %></td>
         <td><%= link_to t(".edit"), edit_user_path(user) %></td>
-        <td><%= link_to t(".destroy"), user, method: :delete, data: { confirm: t(".sure") } %></td>
+        <% if current_user.admin? && !current_user?(user) %>
+          | <%= link_to t(".destroy"), user, method: :delete, data: { confirm: t(".sure") } %>
+        <% end %>
       </tr>
     <% end %>
   </tbody>
 </table>
+<%= will_paginate %>
 <br>
 <%= link_to t(".new_user"), new_user_path %>

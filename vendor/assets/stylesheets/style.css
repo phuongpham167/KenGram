@@ -8,6 +8,7 @@ html, body{
 font-family: 'Open Sans', sans-serif;
  font-size: 100%;
  background: #FFf;
+ padding-top: 50px;
 }
 
 body a {
@@ -76,6 +77,9 @@ ul.top-nag  a:hover,ul.top-nag  a.active{
 }
 ul.top-nag  a.active{
   color: #ffcc00;
+}
+.container{
+  min-height: 700px;
 }
 .search-box{
   float: right;
