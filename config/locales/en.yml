@@ -49,10 +49,14 @@ en:
       edit: "Edit"
       back: "Back"
       danger: "User not found"
+    update:
+      notice: "Profile updated"
+    logged_in_user:
+      danger: "Please log in"
     load_user:
       danger: "User not found"
   update:
-    notice: "User was successfully"
+    notice: "Profile updated"
   destroy:
     notice: "User was delete successfully"
 
@@ -75,6 +79,10 @@ en:
       home: "Home"
       about: "About"
       contact: "Contact"
+      account: "Account"
+      profile: "Profile"
+      settings: "Settings"
+      logout: "Log out"
     application:
       nameapp: "KenGram"
   static_pages:
