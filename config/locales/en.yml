@@ -1,33 +1,97 @@
-# Files in the config/locales directory are used for internationalization
-# and are automatically loaded by Rails. If you want to use locales other
-# than English, add the necessary files in this directory.
-#
-# To use the locales, use `I18n.t`:
-#
-#     I18n.t 'hello'
-#
-# In views, this is aliased to just `t`:
-#
-#     <%= t('hello') %>
-#
-# To use a different locale, set it with `I18n.locale`:
-#
-#     I18n.locale = :es
-#
-# This would use the information in config/locales/es.yml.
-#
-# The following keys must be escaped otherwise they will not be retrieved by
-# the default I18n backend:
-#
-# true, false, on, off, yes, no
-#
-# Instead, surround them with single quotes.
-#
-# en:
-#   'true': 'foo'
-#
-# To learn more, please read the Rails Internationalization guide
-# available at http://guides.rubyonrails.org/i18n.html.
-
 en:
-  hello: "Hello world"
+  sessions:
+    create:
+      danger: "Invalid email/password !!"
+    new:
+      title: "Login"
+      welcome: "Welcome, please enter the following to continue."
+      p: "If you have previously Login with us, "
+      click: "click here"
+      submit: "Login"
+      forgot: "Forgot Password"
+      h3: "New Registration"
+      des: "By creating an account with our store, you will be able to move through the checkout process faster, store multiple shipping addresses, view and track your orders in your account and more."
+      create_account: "Create an account"
+      remember: "Remember me on this computer"
+  users:
+    create:
+      success: "Welcome to the KenGram"
+    _form:
+      h2: "prohibited this user from being saved:"
+      name: "Name: "
+      email: "Email Address: "
+      login_info: "Login Information"
+      pass: "Password: "
+      con_pass: "Confirm Password"
+    edit:
+      editing: "Editing User"
+      show: "Show"
+      back: "Back"
+    index:
+      user: "Users"
+      name: "Name"
+      email: "Email"
+      pass: "Password digest"
+      new_user: "New User"
+      show: "show"
+      edit: "edit"
+      destroy: "destroy"
+      sure: "Are you sure?"
+    new:
+      regis: "Registration"
+      p: "Having hands on experience in creating innovative designs,I do offer design
+      solutions which harness"
+      person_info: "Personal Information"
+    show:
+      name: "Name: "
+      email: "Email: "
+      pass: "Password digest"
+      edit: "Edit"
+      back: "Back"
+      danger: "User not found"
+    update:
+      notice: "Profile updated"
+    logged_in_user:
+      danger: "Please log in"
+    load_user:
+      danger: "User not found"
+  update:
+    notice: "Profile updated"
+  destroy:
+    notice: "User was delete successfully"
+
+  layouts:
+    _footer:
+      nameapp: "KenGram"
+      tit1: "Connect the word"
+      tit2: "Happy picture"
+      mess: "Message Us Now"
+      avai: "Available 24/7"
+      mail: "pham.thi.thu.phuong@framgia.com"
+      h4: "Address Location"
+      add: "Mai Dich, Cau Giay, Ha Noi, VN"
+      phone: "phone: 01695779469"
+      p: "&copy; 2016 Blogger. All Rights Reserved | Design by"
+      a: "W3layouts"
+    _header:
+      signup: "Registration"
+      login: "Login"
+      home: "Home"
+      about: "About"
+      contact: "Contact"
+      account: "Account"
+      profile: "Profile"
+      settings: "Settings"
+      logout: "Log out"
+    application:
+      nameapp: "KenGram"
+  static_pages:
+    about:
+      about: "About"
+    contact:
+      contact: "Contact"
+    help:
+      help: "Help"
+    home:
+      home: "Home"
+

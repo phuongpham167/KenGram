@@ -1,0 +1,16 @@
+<p id="notice"><%= notice %></p>
+<%= gravatar_for @user %>
+<p>
+  <strong><%= t ".name" %></strong>
+  <%= @user.name %>
+</p>
+<p>
+  <strong><%= t ".email" %></strong>
+  <%= @user.email %>
+</p>
+<p>
+  <strong><%= t ".pass" %></strong>
+  <%= @user.password_digest %>
+</p>
+<%= link_to t(".edit"), edit_user_path(@user) %> |
+<%= link_to t(".back"), users_path %>

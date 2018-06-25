@@ -1,0 +1,32 @@
+<div class="login">
+  <div class="login-grids">
+    <div class="col-md-6 log">
+         <h3 class="tittle"><%= t ".title" %> <i class="glyphicon glyphicon-lock"></i></h3>
+         <p><%= t ".welcome" %></p>
+         <p><%= t ".p" %><a href="#"><%= t ".click" %></a></p>
+
+         <%= form_for(:session, url: login_path) do |f| %>
+
+          <%= f.label :email %>
+          <%= f.email_field :email, class: "form-control" %>
+
+          <%= f.label :password %>
+          <%= f.password_field :password, class: "form-control" %>
+
+          <%= f.label :remember_me, class: "checkbox inline" do %>
+            <%= f.check_box :remember_me %>
+            <span><%= t ".remember" %></span>
+          <% end %>
+
+          <%= f.submit t(".submit"), class: "btn btn-primary" %>
+        <% end %>
+        <a href="#"><%= t ".forgot" %></a>
+    </div>
+    <div class="col-md-6 login-right">
+         <h3 class="tittle"><%= t ".h3" %><i class="glyphicon glyphicon-file"></i></h3>
+        <p><%= t ".des" %></p>
+        <%= link_to t(".create_account"), signup_path  %>
+    </div>
+    <div class="clearfix"></div>
+  </div>
+</div>
