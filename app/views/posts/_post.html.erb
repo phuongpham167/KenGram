@@ -1,0 +1,18 @@
+<li id="micropost-<%= post.id %>">
+  <span class="user"><%= link_to post.user.name, post.user %></span>
+  <span class="content">
+    <%= post.caption %>
+  </span>
+  <p><%= post.id %></p>
+  <%= link_to post.created_at, posts_path %>
+  <% @post_attachments = post.post_attachments %>
+  <div class="flexslider">
+    <ul class="slides">
+      <% @post_attachments.each do |post_attachment| %>
+        <li >
+          <%= image_tag post_attachment.avatar_url %>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</li>

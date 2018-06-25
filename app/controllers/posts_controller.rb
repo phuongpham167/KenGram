@@ -20,6 +20,19 @@ class PostsController < ApplicationController
     end
   end
 
+  def show
+    @post_attachments = @post.post_attachments.all
+  end
+
+  def destroy
+    if @post.destroy
+      flash[:success] = t ".flash_sucess_destroy"
+    else
+      flash[:danger] = t ".flash_danger_destroy"
+    end
+    redirect_to request.referrer || root_url
+  end
+
   private
     def load_post
       @post = Post.find_by id: params[:id]
