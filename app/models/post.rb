@@ -5,10 +5,4 @@ class Post < ApplicationRecord
 
   validates :user_id, presence: true
 
-  Post.transaction do
-    Post.create
-    PostAttachment.transaction do
-      PostAttachment.create
-    end
-  end
 end
