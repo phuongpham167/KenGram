@@ -1,0 +1,6 @@
+<h1><%= t ".editing" %></h1>
+
+<%= render "form", user: @user %>
+
+<%= link_to t(".show"), @user %> |
+<%= link_to t(".back"), users_path %>
