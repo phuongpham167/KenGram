@@ -1,0 +1,54 @@
+<%= form_for(@user, url: signup_path) do |form| %>
+  <% if user.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(user.errors.count, "error") %> <%= t "users._form.h2" %></h2>
+    <ul>
+    <% user.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+    </ul>
+  </div>
+  <% end %>
+  <div class="sign-u">
+    <div class="sign-up1">
+      <h4 class="a"><%= t "users._form.name" %></h4>
+    </div>
+    <div class="sign-up2">
+        <%= form.text_field :name, id: :user_name %>
+    </div>
+    <div class="clearfix"> </div>
+  </div>
+  <div class="sign-u">
+    <div class="sign-up1">
+      <h4 class="c"><%= t "users._form.email" %></h4>
+    </div>
+    <div class="sign-up2">
+         <%= form.text_field :email, id: :user_email %>
+    </div>
+    <div class="clearfix"> </div>
+  </div>
+  <h3 class="tittle reg"><%= t "users._form.login_info" %> <i class="glyphicon glyphicon-off"></i></h3>
+  <div class="sign-u">
+    <div class="sign-up1">
+      <h4 class="d"><%= t "users._form.pass" %></h4>
+    </div>
+    <div class="sign-up2">
+       <%= form.password_field :password, class: "form-control" %>
+    </div>
+    <div class="clearfix"> </div>
+  </div>
+  <div class="sign-u">
+    <div class="sign-up1">
+      <h4><%= t "users._form.con_pass" %></h4>
+    </div>
+    <div class="sign-up2">
+      <%= form.password_field :password_confirmation, class: "form-control" %>
+    </div>
+    <div class="clearfix"> </div>
+  </div>
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
+
+
