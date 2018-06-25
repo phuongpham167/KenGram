@@ -1,0 +1,5 @@
+<% if @feed_items.try(:any?) %>
+  <ol class="posts">
+    <%= render @feed_items %>
+  </ol>
+<% end %>
