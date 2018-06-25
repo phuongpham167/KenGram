@@ -78,6 +78,9 @@ ul.top-nag  a:hover,ul.top-nag  a.active{
 ul.top-nag  a.active{
   color: #ffcc00;
 }
+.container{
+  min-height: 700px;
+}
 .search-box{
   float: right;
   width:15%;
