@@ -1,0 +1,9 @@
+user:
+  name:
+    max_lenght: 50
+  email:
+    max_lenght: 250
+  password:
+    min_lenght: 6
+sessions:
+  remember: "1"
