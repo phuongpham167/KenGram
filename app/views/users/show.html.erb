@@ -1,8 +1,12 @@
-<p id="notice"><%= notice %></p>
-<%= gravatar_for @user %>
-<p>
-  <strong><%= t ".name" %></strong>
-  <%= @user.name %>
+<p id="notice"><%= notice %></p>	
+<%= gravatar_for @user %>	
+<p>	
+  <strong><%= t ".name" %></strong>	
+  <%= @user.name %>	
+</p>	
+<p>	
+  <strong><%= t ".email" %></strong>	
+  <%= @user.email %>	
 </p>
 <p>
   <strong><%= t ".email" %></strong>
@@ -13,11 +17,17 @@
 <div>
   <%= link_to t(".mark"), user_bookmark_user_path(@user) %>
 </div>
+<%= link_to t(".edit"), edit_user_path(@user) %> |	
+<%= link_to t(".back"), users_path %>	
+<section class="stats">
+  <%= render "shared/stats" %>
+</section>
 <div class="col-md-8">
-  <% if @user.posts.any? %>
-    <h3><%= t ".post" %> (<%= @user.posts.count %>)</h3>
-    <ol>
-      <%= render @posts %>
-    </ol>
-  <% end %>
+  <%= render "follow_form" if logged_in? %>
+  <% if @user.posts.any? %>	
+    <h3><%= t ".post" %> (<%= @user.posts.count %>)</h3>	
+    <ol>	
+      <%= render @posts %>	
+    </ol>	
+  <% end %>	
 </div>
