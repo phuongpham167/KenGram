@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+  has_many :posts, dependent: :destroy
   attr_accessor :remember_token
   before_save :downcase_email
 
@@ -23,6 +24,7 @@ class User < ApplicationRecord
   end
 
   def authenticated? remember_token
+    return false if remember_digest.nil?
     BCrypt::Password.new(remember_digest).is_password?(remember_token)
   end
 

@@ -55,6 +55,57 @@ en:
       danger: "Please log in"
     load_user:
       danger: "User not found"
+  posts:
+    create:
+      danger: "Images save failed"
+      success: "Post created!"
+    load_post:
+      danger: "Post not found"
+    edit:
+      title: "Editing Post"
+      show: "Show"
+      back: "Back"
+    index:
+      post: "Posts"
+      caption: "Caption"
+      user: "User"
+      show: "Show"
+      edit: "Edit"
+      destroy: "Destroy"
+      confirm: "Are you sure?"
+      new_post: "New post"
+    new:
+      title: "New Post"
+      back: "Back"
+    show:
+      caption: "Caption:"
+      user: "User:"
+      edit: "Edit"
+      back: "Back"
+  post_attachment:
+    _form:
+      notice: "prohibited this post_attachment from being saved:"
+    edit:
+      show: "Show"
+      back: "Back"
+    index:
+      title: "Post Attachments"
+      post: "Post"
+      avatar: "Avatar"
+      show: "Show"
+      edit: "Edit"
+      destroy: "Destroy"
+      confirm: "Are you sure?"
+      new_post: "New Post Attachment"
+    new:
+      title: "New Post Attachment"
+    show:
+      post: "Post:"
+      avatar: "Avatar"
+      edit: "Edit"
+      back: "Back"
+    load_post_attachment:
+      danger: "Image not found"
   update:
     notice: "Profile updated"
   destroy:
@@ -83,6 +134,7 @@ en:
       profile: "Profile"
       settings: "Settings"
       logout: "Log out"
+      users: "Users"
     application:
       nameapp: "KenGram"
   static_pages:

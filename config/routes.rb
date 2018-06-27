@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  resources :post_attachments
+  resources :posts
   get "sessions/new"
   root "static_pages#home"
   get "/help", to: "static_pages#help"
