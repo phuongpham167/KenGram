@@ -1,15 +1,21 @@
 class UsersController < ApplicationController
   before_action :load_user, only: %i(show edit update destroy)
+  before_action :logged_in_user, only: %(edit update destroy)
+  before_action :correct_user, only: %i(edit update)
+  before_action :admin_user?, only: %(destroy)
 
-  def index;  end
+  def index
+    @users = User.paginate page: params[:page]
+  end
 
   def new
     @user = User.new
   end
 
   def create
-    @user = User.new(user_params)
+    @user = User.new user_params
     if @user.save
+      log_in @user
       flash[:success] = t ".success"
       redirect_to @user
     else
@@ -23,26 +29,24 @@ class UsersController < ApplicationController
     redirect_to root_url
   end
 
-  def edit; end
+  def edit
+    @user = User.find_by id: params[:id]
+  end
 
   def update
-    respond_to do |format|
-      if @user.update(user_params)
-        format.html { redirect_to @user, notice: t(".notice") }
-        format.json { render :show, status: :ok, location: @user }
-      else
-        format.html { render :edit }
-        format.json { render json: @user.errors, status: :unprocessable_entity }
-      end
+    @user = User.find_by id: params[:id]
+    if @user.update_attributes user_params
+      flash[:success] = t ".notice"
+      redirect_to @user
+    else
+      render :edit
     end
   end
 
   def destroy
-    @user.destroy
-    respond_to do |format|
-      format.html { redirect_to users_url, notice: t(".notice") }
-      format.json { head :no_content }
-    end
+    User.find_by id: params[:id]
+    flash[:success] = "User deleted"
+    redirect_to users_url
   end
 
   private
@@ -56,5 +60,21 @@ class UsersController < ApplicationController
     def user_params
       params.require(:user).permit :name, :email, :password,
        :password_confirmation
+    end
+
+    def logged_in_user
+      unless logged_in?
+        flash[:danger] = t ".danger"
+        redirect_to login_url
+      end
+    end
+
+    def correct_user
+      @user = User.find_by id: params[:id]
+      redirect_to root_url unless current_user? @user
+    end
+
+    def admin_user?
+      redirect_to root_url unless current_user.admin?
     end
 end
