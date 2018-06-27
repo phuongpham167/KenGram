@@ -29,3 +29,8 @@ config/environments/*.local.yml
 #ignore all file test
 /test/*
 
+#ignore upload
+/public/uploads/*
+
+#ignore vendor assets
+/vendor/assets/*

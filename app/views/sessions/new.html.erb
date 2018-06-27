@@ -1,11 +1,10 @@
 <div class="login">
   <div class="login-grids">
     <div class="col-md-6 log">
-         <h3 class="tittle"><%= t ".title" %> <i class="glyphicon glyphicon-lock"></i></h3>
-         <p><%= t ".welcome" %></p>
-         <p><%= t ".p" %><a href="#"><%= t ".click" %></a></p>
-
-         <%= form_for(:session, url: login_path) do |f| %>
+        <h3 class="tittle"><%= t ".title" %> <i class="glyphicon glyphicon-lock"></i></h3>
+        <p><%= t ".welcome" %></p>
+        <p><%= t ".p" %><a href="#"><%= t ".click" %></a></p>
+          <%= form_for(:session, url: login_path) do |f| %>
 
           <%= f.label :email %>
           <%= f.email_field :email, class: "form-control" %>
@@ -23,7 +22,7 @@
         <a href="#"><%= t ".forgot" %></a>
     </div>
     <div class="col-md-6 login-right">
-         <h3 class="tittle"><%= t ".h3" %><i class="glyphicon glyphicon-file"></i></h3>
+        <h3 class="tittle"><%= t ".h3" %><i class="glyphicon glyphicon-file"></i></h3>
         <p><%= t ".des" %></p>
         <%= link_to t(".create_account"), signup_path  %>
     </div>
