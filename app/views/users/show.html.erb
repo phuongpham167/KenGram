@@ -8,9 +8,15 @@
   <strong><%= t ".email" %></strong>
   <%= @user.email %>
 </p>
-<p>
-  <strong><%= t ".pass" %></strong>
-  <%= @user.password_digest %>
-</p>
 <%= link_to t(".edit"), edit_user_path(@user) %> |
 <%= link_to t(".back"), users_path %>
+
+<div class="col-md-8">
+  <% if @user.posts.any? %>
+    <h3><%= t ".post" %> (<%= @user.posts.count %>)</h3>
+    <ol>
+      <%= render @posts %>
+    </ol>
+    <%= will_paginate @posts %>
+  <% end %>
+</div>

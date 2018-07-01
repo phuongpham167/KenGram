@@ -10,3 +10,12 @@
 </p>
 <%= link_to t(".edit"), edit_post_path(@post) %> |
 <%= link_to t(".back"), posts_path %>
+<div class="flexslider" style="max-width: 700px; max-height: 700px ">
+  <ul class="slides">
+    <% @post_attachments.each do |p| %>
+      <li >
+        <%= image_tag p.avatar_url %>
+      </li>
+    <% end %>
+  </ul>
+</div>

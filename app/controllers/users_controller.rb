@@ -5,7 +5,7 @@ class UsersController < ApplicationController
   before_action :admin_user?, only: %(destroy)
 
   def index
-    @users = User.paginate page: params[:page]
+    @users = User.paginate(page: params[:page]).order :created_at
   end
 
   def new
@@ -24,9 +24,7 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.find_by id: params[:id]
-    return if @user
-    redirect_to root_url
+    @posts = @user.posts.paginate(page: params[:page]).order :created_at
   end
 
   def edit
