@@ -32,6 +32,10 @@ class User < ApplicationRecord
     update_attribute :remember_digest, User.digest(remember_token)
   end
 
+  def feed
+    Post.where("user_id = ?", id)
+  end
+
   private
     def downcase_email
       self.email = email.downcase

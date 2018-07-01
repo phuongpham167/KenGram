@@ -1,0 +1,21 @@
+<li id="micropost-<%= post.id %>">
+  <span class="user"><%= link_to post.user.name, post.user %></span>
+  <span class="content">
+    <%= post.caption %>
+  </span>
+  <p><%= post.id %></p>
+  <a href="http://localhost:3000/posts/<%= post.id %>"><%= post.created_at %></a>
+  <%= link_to t(".destroy"), post, method: :delete, data: { confirm: t(".confirm") } %>
+  <%= link_to t(".edit"), edit_post_path(post.id) %>
+  <% @post_attachments = post.post_attachments %>
+  <div class="flexslider" style="width: 700px; height: 700px ">
+    <ul class="slides">
+      <% @post_attachments.each do |p| %>
+        <li>
+          <%= image_tag p.avatar_url%>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</li>
+
