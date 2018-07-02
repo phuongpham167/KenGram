@@ -54,7 +54,7 @@ class PostsController < ApplicationController
     end
 
     def post_params
-      params.require(:post).permit :caption, post_attachments_attributes:
+      params.require(:post).permit :caption, :tag , post_attachments_attributes:
         [:id, :post_id, :avatar]
     end
 end

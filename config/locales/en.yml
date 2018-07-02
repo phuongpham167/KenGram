@@ -82,6 +82,7 @@ en:
       user: "User:"
       edit: "Edit"
       back: "Back"
+      tag: "Hashtag"
     _post:
       more: "Show"
   post_attachment:

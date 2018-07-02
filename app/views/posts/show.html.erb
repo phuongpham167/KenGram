@@ -1,15 +1,18 @@
 <p id="notice"><%= notice %></p>
+<p>
+  <strong><%= t ".user" %></strong>
+  <%= @post.user.name %>
+</p>
 <%= @post.id %>
 <p>
   <strong><%= t ".caption" %></strong>
   <%= @post.caption %>
 </p>
 <p>
-  <strong><%= t ".user" %></strong>
-  <%= @post.user.name %>
+  <strong><%= t ".tag" %></strong>
+  <%= @post.tag %>
 </p>
-<%= link_to t(".edit"), edit_post_path(@post) %> |
-<%= link_to t(".back"), posts_path %>
+<%= link_to t(".edit"), edit_post_path(@post) %>
 <div class="flexslider" style="max-width: 700px; max-height: 700px ">
   <ul class="slides">
     <% @post_attachments.each do |p| %>

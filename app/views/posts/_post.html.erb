@@ -3,6 +3,9 @@
   <span class="content">
     <%= post.caption %>
   </span>
+  <span class="content">
+    <%= post.tag %>
+  </span>
   <p><%= post.id %></p>
   <a href="http://localhost:3000/posts/<%= post.id %>"><%= post.created_at %></a>
   <%= link_to t(".destroy"), post, method: :delete, data: { confirm: t(".confirm") } %>
