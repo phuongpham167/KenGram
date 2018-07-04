@@ -7,6 +7,7 @@
     <%= post.tag %>
   </span>
   <p><%= post.id %></p>
+  <p>Album: <%= link_to post.album.name, post.album %></p>
   <a href="http://localhost:3000/posts/<%= post.id %>"><%= post.created_at %></a>
   <%= link_to t(".destroy"), post, method: :delete, data: { confirm: t(".confirm") } %>
   <%= link_to t(".edit"), edit_post_path(post.id) %>
