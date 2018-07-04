@@ -1,2 +1,7 @@
 @import 'bootstrap-sprockets';
 @import 'bootstrap';
+
+body .container{
+  padding-top: 150px;
+  min-height: 700px;
+}

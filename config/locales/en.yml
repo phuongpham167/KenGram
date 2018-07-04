@@ -113,7 +113,15 @@ en:
     notice: "Profile updated"
   destroy:
     notice: "User was delete successfully"
-
+  albums:
+    create:
+      success: "Create success album"
+      danger: "Create album failed"
+    form:
+      create: "Create album"
+      name: "Name of album"
+      caption: "Caption of album"
+      create: "Create"
   layouts:
     _footer:
       nameapp: "KenGram"

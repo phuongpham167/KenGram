@@ -1,5 +1,6 @@
 class User < ApplicationRecord
   has_many :posts, dependent: :destroy
+  has_many :albums, dependent: :destroy
   attr_accessor :remember_token
   before_save :downcase_email
 
