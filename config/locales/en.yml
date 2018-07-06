@@ -16,13 +16,13 @@ en:
   users:
     create:
       success: "Welcome to the KenGram"
-    _form:
+    form:
       h2: "prohibited this user from being saved:"
       name: "Name: "
       email: "Email Address: "
       login_info: "Login Information"
       pass: "Password: "
-      con_pass: "Confirm Password"
+      conpass: "Confirm Password"
     edit:
       editing: "Editing User"
       show: "Show"
@@ -32,7 +32,7 @@ en:
       name: "Name"
       email: "Email"
       pass: "Password digest"
-      new_user: "New User"
+      newuser: "New User"
       show: "show"
       edit: "edit"
       destroy: "destroy"
@@ -54,13 +54,12 @@ en:
       notice: "Profile updated"
     logged_in_user:
       danger: "Please log in"
-    load_user:
+    loaduser:
       danger: "User not found"
   posts:
     create:
-      danger: "Images save failed"
       success: "Post created!"
-    load_post:
+    loadpost:
       danger: "Post not found"
     edit:
       title: "Editing Post"
@@ -76,7 +75,7 @@ en:
       edit: "Edit"
       destroy: "Destroy"
       confirm: "Are you sure?"
-      new_post: "New post"
+      newpost: "New post"
     new:
       title: "New Post"
       back: "Back"
@@ -96,13 +95,12 @@ en:
       back: "Back"
     index:
       title: "Post Attachments"
-      post: "Post"
       avatar: "Avatar"
       show: "Show"
       edit: "Edit"
       destroy: "Destroy"
       confirm: "Are you sure?"
-      new_post: "New Post Attachment"
+      newpost: "New Post Attachment"
     new:
       title: "New Post Attachment"
     show:
@@ -116,8 +114,17 @@ en:
     notice: "Profile updated"
   destroy:
     notice: "User was delete successfully"
+  albums:
+    create:
+      success: "Create success album"
+      danger: "Create album failed"
+    form:
+      create_album: "Create album"
+      name: "Name of album"
+      caption: "Caption of album"
+      create: "Create"
   layouts:
-    _footer:
+    footer:
       nameapp: "KenGram"
       tit1: "Connect the word"
       tit2: "Happy picture"
@@ -129,7 +136,7 @@ en:
       phone: "phone: 01695779469"
       p: "&copy; 2016 Blogger. All Rights Reserved | Design by"
       a: "W3layouts"
-    _header:
+    header:
       signup: "Registration"
       login: "Login"
       home: "Home"
@@ -140,6 +147,7 @@ en:
       settings: "Settings"
       logout: "Log out"
       users: "Users"
+      placeholer: "Search"
     application:
       nameapp: "KenGram"
   shared:

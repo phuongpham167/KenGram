@@ -28,11 +28,9 @@ class UsersController < ApplicationController
   end
 
   def edit
-    @user = User.find_by id: params[:id]
   end
 
   def update
-    @user = User.find_by id: params[:id]
     if @user.update_attributes user_params
       flash[:success] = t ".notice"
       redirect_to @user
@@ -42,37 +40,41 @@ class UsersController < ApplicationController
   end
 
   def destroy
-    User.find_by id: params[:id]
     flash[:success] = "User deleted"
     redirect_to users_url
   end
 
   private
-    def load_user
-      @user = User.find_by id: params[:id]
-      return if @user
-      flash[:danger] = t ".danger"
-      redirect_to root_url
-    end
 
-    def user_params
-      params.require(:user).permit :name, :email, :password,
-       :password_confirmation
-    end
+  def find_user
+    User.find_by id: params[:id] || not_found
+  end
+  
+  
+  def load_user
+    @user = find_user
+    return if @user
+    flash[:danger] = t ".danger"
+    redirect_to root_url
+  end
 
-    def logged_in_user
-      unless logged_in?
-        flash[:danger] = t ".danger"
-        redirect_to login_url
-      end
-    end
+  def user_params
+    params.require(:user).permit :name, :email, :password,
+      :password_confirmation
+  end
 
-    def correct_user
-      @user = User.find_by id: params[:id]
-      redirect_to root_url unless current_user? @user
-    end
+  def logged_in_user
+    return if logged_in?
+    flash[:danger] = t ".danger"
+    redirect_to login_url
+  end
 
-    def admin_user?
-      redirect_to root_url unless current_user.admin?
-    end
+  def correct_user
+    @user = User.find_by id: params[:id]
+    redirect_to root_url unless current_user? @user
+  end
+
+  def admin_user?
+    redirect_to root_url unless current_user.admin?
+  end
 end

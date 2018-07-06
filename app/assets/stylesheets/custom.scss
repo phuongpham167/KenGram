@@ -9,3 +9,7 @@ body .container{
   max-height: 700px;
   max-width: 700px;
 }
+.ui-menu .ui-menu-item-wrapper {
+  position: relative !important;
+  padding: 20px 1em 20px .4em !important;
+}

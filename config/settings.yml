@@ -9,4 +9,8 @@ user:
     per_page: 5
 sessions:
   remember: "1"
-
+album:
+  name:
+    max_length: 140
+  caption:
+    max_length: 200    
