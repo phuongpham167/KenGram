@@ -1,11 +1,15 @@
 <%= form_for(@post, html: { multipart: true }) do |f| %>
   <div class="field">
-    <%= f.label :title %><br>
+    <%= f.label :caption %><br>
     <%= f.text_field :caption %>
+  </div>
+  <div class="field">
+    <%= f.label :tag %><br>
+    <%= f.text_field :tag %>
   </div>
   <%= f.fields_for :post_attachments do |p| %>
     <div class="field">
-      <%= p.label :avatar %><br>
+      <%= p.label :images %><br>
       <%= p.file_field :avatar, multiple: true, name: "post_attachments[avatar][]" %>
     </div>
   <% end %>

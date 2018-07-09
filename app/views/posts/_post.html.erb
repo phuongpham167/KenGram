@@ -3,6 +3,9 @@
   <span class="content">
     <%= post.caption %>
   </span>
+  <span class="content">
+    <%= post.tag %>
+  </span>
   <p><%= post.id %></p>
   <%= link_to post.created_at, posts_path %>
   <% @post_attachments = post.post_attachments %>

@@ -24,6 +24,18 @@ class PostsController < ApplicationController
     @post_attachments = @post.post_attachments.all
   end
 
+  def edit;  end
+
+  def update
+    @post = Post.find_by id: params[:id]
+    if @post.update_attributes post_params
+      flash[:success] = t ".success"
+      redirect_to root_url
+    else
+      render :edit
+    end
+  end
+
   def destroy
     if @post.destroy
       flash[:success] = t ".flash_sucess_destroy"
@@ -42,7 +54,7 @@ class PostsController < ApplicationController
     end
 
     def post_params
-      params.require(:post).permit :caption, post_attachments_attributes:
+      params.require(:post).permit :caption, :tag, post_attachments_attributes:
         [:id, :post_id, :avatar]
     end
 end
