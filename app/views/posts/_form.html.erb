@@ -7,6 +7,9 @@
     <%= f.label :tag %><br>
     <%= f.text_field :tag %>
   </div>
+  <div>
+    <%= select "post", "album_id", current_user.albums.collect { |a| [a.name, a.id] } %>
+  </div>
   <%= f.fields_for :post_attachments do |p| %>
     <div class="field">
       <%= p.label :images %><br>

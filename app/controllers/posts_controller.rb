@@ -2,6 +2,10 @@ class PostsController < ApplicationController
   before_action :load_post, only: %i(show edit update destroy)
   before_action :logged_in_user, only: %i(create destroy)
 
+  def index
+    @post = Post.search params[:find]
+  end
+
   def new
     @post = Post.new
     @post_attachment = @post.post_attachments.build
@@ -10,8 +14,9 @@ class PostsController < ApplicationController
   def create
     @post = current_user.posts.build post_params
     if @post.save
+      id = @post.id
       params[:post_attachments]["avatar"].each do |a|
-          @post_attachment = @post.post_attachments.create!(:avatar => a, :post_id => @post.id)
+        @post_attachment = @post.post_attachments.create! avatar: a, post_id: id
       end
       flash[:success] = t ".success"
       redirect_to root_url
@@ -46,15 +51,15 @@ class PostsController < ApplicationController
   end
 
   private
-    def load_post
-      @post = Post.find_by id: params[:id]
-      return if @post
-      flash[:danger] = t ".danger"
-      redirect_to root_url
-    end
+  
+  def load_post
+    @post = Post.find_by id: params[:id] || not_found
+    return if @post
+    flash[:danger] = t ".danger"
+    redirect_to root_url
+  end
 
-    def post_params
-      params.require(:post).permit :caption, :tag, post_attachments_attributes:
-        [:id, :post_id, :avatar]
-    end
+  def post_params
+    params.require(:post).permit :caption, :tag, :album_id
+  end
 end

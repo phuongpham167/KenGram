@@ -1,0 +1,10 @@
+<h1><%= t (".create_album") %></h1>
+<br>
+<%= form_for(@album) do |f| %>
+  <div class="field">
+    <%= f.text_area :name, placeholder: t(".name") %>
+    <%= f.text_area :caption, placeholder: t(".caption") %>
+  </div>
+  <%= f.submit t(".create"), class: "btn btn-primary" %>
+  <br>
+<% end %>
