@@ -49,6 +49,7 @@ en:
       edit: "Edit"
       back: "Back"
       danger: "User not found"
+      post: "Posts"
     update:
       notice: "Profile updated"
     logged_in_user:
@@ -82,6 +83,8 @@ en:
       user: "User:"
       edit: "Edit"
       back: "Back"
+    _post:
+      more: "Show"
   post_attachment:
     _form:
       notice: "prohibited this post_attachment from being saved:"
@@ -110,7 +113,6 @@ en:
     notice: "Profile updated"
   destroy:
     notice: "User was delete successfully"
-
   layouts:
     _footer:
       nameapp: "KenGram"
@@ -137,6 +139,10 @@ en:
       users: "Users"
     application:
       nameapp: "KenGram"
+  shared:
+    user_info:
+      view: "View profile"
+      post: "posts"
   static_pages:
     about:
       about: "About"

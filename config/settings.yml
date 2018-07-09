@@ -5,5 +5,8 @@ user:
     max_lenght: 250
   password:
     min_lenght: 6
+  show:
+    per_page: 5
 sessions:
   remember: "1"
+

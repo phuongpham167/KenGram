@@ -5,10 +5,7 @@ class Post < ApplicationRecord
 
   validates :user_id, presence: true
 
-  Post.transaction do
-    Post.create
-    PostAttachment.transaction do
-      PostAttachment.create
-    end
-  end
+  scope :by_user, (lambda do |user_id|
+    where user_id: user_id
+  end)
 end
