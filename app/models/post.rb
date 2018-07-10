@@ -6,6 +6,9 @@ class Post < ApplicationRecord
   has_many :passive_likes, class_name:  Like.name,
     foreign_key: "post_id", dependent: :destroy
   has_many :post_likes, through: :passive_likes, source: :user
+  has_many :passive_bookmarks, class_name:  Bookmark.name,
+    foreign_key: "post_id", dependent: :destroy
+  has_many :post_bookmarks, through: :passive_bookmarks, source: :user
 
   validates :user_id, presence: true
 

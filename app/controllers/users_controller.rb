@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :load_user, only: %i(show edit update destroy)
+  before_action :load_user, only: %i(show edit update destroy user_bookmark)
   before_action :logged_in_user, only: %(edit update destroy)
   before_action :correct_user, only: %i(edit update)
   before_action :admin_user?, only: %(destroy)
@@ -44,15 +44,15 @@ class UsersController < ApplicationController
     redirect_to users_url
   end
 
+  def user_bookmark
+    @post = @user.user_bookmarks || not_found
+    render :user_bookmark
+  end
+
   private
 
-  def find_user
-    User.find_by id: params[:id] || not_found
-  end
-  
-  
   def load_user
-    @user = find_user
+    @user = User.find_by id: params[:id]
     return if @user
     flash[:danger] = t ".danger"
     redirect_to root_url

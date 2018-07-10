@@ -50,6 +50,11 @@ en:
       back: "Back"
       danger: "User not found"
       post: "Posts"
+      mark: "Posts you mark"
+    user_bookmark:
+      empty: "You does not mark any post"
+      album: "Album"
+      likes: "likes"
     update:
       notice: "Profile updated"
     logged_in_user:
@@ -57,6 +62,10 @@ en:
     loaduser:
       danger: "User not found"
   posts:
+    bookmark:
+      save: "Save"
+    unbookmark:
+      unsave: "Un Save"
     like:
       submit: "Like"
     unlike:
