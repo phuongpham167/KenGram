@@ -1,7 +1,5 @@
 Rails.application.routes.draw do
 
-  resources :post_attachments
-  resources :posts
   get "sessions/new"
   root "static_pages#home"
   get "/help", to: "static_pages#help"
@@ -12,7 +10,18 @@ Rails.application.routes.draw do
   post "/login", to: "sessions#create"
   delete "/logout", to: "sessions#destroy"
 
-  resources :users
+  resources :users do
+    member do
+      get :user_like
+    end
+  end
+  resources :post_attachments
+  resources :posts do
+    member do
+      get :post_like
+    end
+  end
   resources :albums
   resources :posts
+  resources :likes, only: [:create, :destroy]
 end

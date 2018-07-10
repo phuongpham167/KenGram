@@ -50,8 +50,13 @@ class PostsController < ApplicationController
     redirect_to request.referrer || root_url
   end
 
+  def post_like
+    @post = Post.find_by id: params[:id] || not_found
+    render :show_like
+  end
+
   private
-  
+
   def load_post
     @post = Post.find_by id: params[:id] || not_found
     return if @post

@@ -57,6 +57,12 @@ en:
     loaduser:
       danger: "User not found"
   posts:
+    like:
+      submit: "Like"
+    unlike:
+      submit: "Un Like"
+    show_like:
+      text: "Like this post"
     create:
       success: "Post created!"
     loadpost:
@@ -87,6 +93,8 @@ en:
       tag: "Hashtag"
     _post:
       more: "Show"
+      unlike: "Unlike"
+      like: "Like"
   post_attachment:
     _form:
       notice: "prohibited this post_attachment from being saved:"
