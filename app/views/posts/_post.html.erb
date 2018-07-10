@@ -18,4 +18,25 @@
       <% end %>
     </ul>
   </div>
+  <div>
+    <% if current_user.like?(post) %>
+      <%= form_for(current_user.active_likes.find_by(post_id: post.id),
+        html: { method: :delete }) do |f| %>
+        <%= f.submit t(".unlike"), class: "btn" %>
+      <% end %>
+    <% else %>
+      <%= form_for(current_user.active_likes.build) do |f| %>
+        <div><%= hidden_field_tag :post_id, post.id %></div>
+        <%= f.submit t(".like"), class: "btn btn-primary" %>
+      <% end %>
+    <% end %>
+  </div>
+  <div class="stats">
+    <a href="<%= post_like_post_path(post.id) %>">
+      <strong>
+        <%= post.post_likes.count %>
+      </strong>
+      <%= t ".like" %>
+    </a>
+  </div>
 </li>

@@ -1,6 +1,9 @@
 class User < ApplicationRecord
   has_many :posts, dependent: :destroy
   has_many :albums, dependent: :destroy
+  has_many :active_likes, class_name:  Like.name,
+    foreign_key: "user_id", dependent: :destroy
+  has_many :user_like, through: :active_likes, source: :post
   attr_accessor :remember_token
   before_save :downcase_email
 
@@ -37,6 +40,18 @@ class User < ApplicationRecord
 
   def forget
     update_attribute :remember_digest, User.digest(remember_token)
+  end
+
+  def like post_id
+    user_like << post_id
+  end
+
+  def unlike post_id
+    user_like.delete post_id
+  end
+
+  def like? post_id
+    user_like.include? post_id
   end
 
   private

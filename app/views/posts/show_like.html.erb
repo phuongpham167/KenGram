@@ -1,0 +1,8 @@
+<div>
+  <% @post.post_likes.each do |user| %>
+    <span>
+      <%= user.name %>
+    </span>
+  <% end %>
+  <%= t ".text" %>
+</div>
