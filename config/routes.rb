@@ -12,7 +12,7 @@ Rails.application.routes.draw do
 
   resources :users do
     member do
-      get :user_like
+      get :user_like, :user_bookmark
     end
   end
   resources :post_attachments
@@ -24,4 +24,5 @@ Rails.application.routes.draw do
   resources :albums
   resources :posts
   resources :likes, only: [:create, :destroy]
+  resources :bookmarks, only: [:create, :destroy]
 end

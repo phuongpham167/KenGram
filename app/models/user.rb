@@ -4,6 +4,9 @@ class User < ApplicationRecord
   has_many :active_likes, class_name:  Like.name,
     foreign_key: "user_id", dependent: :destroy
   has_many :user_like, through: :active_likes, source: :post
+  has_many :active_bookmarks, class_name:  Bookmark.name,
+    foreign_key: "user_id", dependent: :destroy
+  has_many :user_bookmarks, through: :active_bookmarks, source: :post
   attr_accessor :remember_token
   before_save :downcase_email
 
@@ -52,6 +55,18 @@ class User < ApplicationRecord
 
   def like? post_id
     user_like.include? post_id
+  end
+
+  def bookmark post_id
+    user_bookmarks << post_id
+  end
+
+  def unbookmark post_id
+    user_bookmarks.delete post_id
+  end
+
+  def bookmark? post_id
+    user_bookmarks.include? post_id
   end
 
   private

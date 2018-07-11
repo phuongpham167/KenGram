@@ -1,4 +1,5 @@
-<li id="micropost-<%= post.id %>">
+<% @post.each do |post| %>
+  <li id="micropost-<%= post.id %>">
   <span class="user"><%= link_to post.user.name, post.user %></span>
   <span class="content">
     <%= post.caption %>
@@ -7,7 +8,9 @@
     <%= post.tag %>
   </span>
   <p><%= post.id %></p>
-  <%= link_to post.created_at, posts_path %>
+  <p><%= t ".album" %> <%= link_to post.album.name, post.album %></p>
+  <%= link_to t(".destroy"), post, method: :delete, data: { confirm: t(".confirm") } %>
+  <%= link_to t(".edit"), edit_post_path(post.id) %>
   <% @post_attachments = post.post_attachments %>
   <div class="flexslider">
     <ul class="slides">
@@ -22,12 +25,12 @@
     <% if current_user.like?(post) %>
       <%= form_for(current_user.active_likes.find_by(post_id: post.id),
         html: { method: :delete }) do |f| %>
-        <%= f.submit t(".unlike"), class: "btn" %>
+        <%= f.submit t("posts.unlike.submit"), class: "btn" %>
       <% end %>
     <% else %>
       <%= form_for(current_user.active_likes.build) do |f| %>
         <div><%= hidden_field_tag :post_id, post.id %></div>
-        <%= f.submit t(".like"), class: "btn btn-primary" %>
+        <%= f.submit t("posts.like.submit"), class: "btn btn-primary" %>
       <% end %>
     <% end %>
   </div>
@@ -36,20 +39,29 @@
       <strong>
         <%= post.post_likes.count %>
       </strong>
-      <%= t ".like" %>
+      <%= t ".likes" %>
     </a>
   </div>
   <div>
-  <% if current_user.bookmark?(post) %>
-    <%= form_for(current_user.active_bookmarks.find_by(post_id: post.id),
-      html: { method: :delete }) do |f| %>
-      <%= f.submit t("posts.unbookmark.unsave"), class: "btn" %>
+    <% post.post_likes.each do |post| %>
+      <span>
+        <%= post.name %>
+      </span>
     <% end %>
+    <%= t "posts.show_like.text" %>
+  </div>
+  <div>
+    <% if current_user.bookmark?(post) %>
+      <%= form_for(current_user.active_bookmarks.find_by(post_id: post.id),
+        html: { method: :delete }) do |f| %>
+        <%= f.submit t("posts.unbookmark.unsave"), class: "btn" %>
+      <% end %>
     <% else %>
-    <%= form_for(current_user.active_bookmarks.build) do |f| %>
-      <div><%= hidden_field_tag :post_id, post.id %></div>
-      <%= f.submit t("posts.bookmark.save"), class: "btn btn-primary" %>
+      <%= form_for(current_user.active_bookmarks.build) do |f| %>
+        <div><%= hidden_field_tag :post_id, post.id %></div>
+        <%= f.submit t("posts.bookmark.save"), class: "btn btn-primary" %>
+      <% end %>
     <% end %>
-  <% end %>
   </div>
 </li>
+<% end %>
