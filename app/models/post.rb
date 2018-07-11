@@ -12,8 +12,9 @@ class Post < ApplicationRecord
 
   validates :user_id, presence: true
 
-  scope :by_user, (lambda do |user_id|
-    where user_id: user_id
+  scope :by_user, (lambda do |user_id, following_ids|
+    Post.where("user_id IN (:following_ids) OR user_id = :user_id",
+      following_ids: following_ids, user_id: user_id)
   end)
   scope :search, (lambda do |keyword|
     unless keyword.blank?

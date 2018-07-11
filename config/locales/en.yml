@@ -11,9 +11,14 @@ en:
       forgot: "Forgot Password"
       h3: "New Registration"
       des: "By creating an account with our store, you will be able to move through the checkout process faster, store multiple shipping addresses, view and track your orders in your account and more."
-      create_account: "Create an account"
-      remember: "Remember me on this computer"
+      createaccount: "Create an account"
+      sign_up: "Sign Up"
+      login: "Login"
   users:
+    follow:
+      follow: "Follow"
+    unfollow:
+      unfollow: "Unfollow"  
     create:
       success: "Welcome to the KenGram"
     form:
@@ -42,6 +47,11 @@ en:
       p: "Having hands on experience in creating innovative designs,I do offer design
       solutions which harness"
       person_info: "Personal Information"
+    form_login:
+      submit: "Login"
+      remember: "Remember me on this computer"
+    form_sign_up:
+      submit: "Sign Up"    
     show:
       name: "Name: "
       email: "Email: "
@@ -59,17 +69,18 @@ en:
       notice: "Profile updated"
     logged_in_user:
       danger: "Please log in"
-    loaduser:
+    load_user:
       danger: "User not found"
   posts:
+    like: "Like"
+    unlike: "Unlike"
     bookmark:
       save: "Save"
     unbookmark:
       unsave: "Un Save"
-    like:
-      submit: "Like"
-    unlike:
-      submit: "Un Like"
+    post:  
+      like: "Like"
+      unlike: "UnLike"
     show_like:
       text: "Like this post"
     create:
@@ -112,6 +123,7 @@ en:
       back: "Back"
     index:
       title: "Post Attachments"
+      post: "Post"
       avatar: "Avatar"
       show: "Show"
       edit: "Edit"
@@ -180,4 +192,6 @@ en:
       help: "Help"
     home:
       home: "Home"
-
+    stats:
+      following: "following"
+      followers: "followers"

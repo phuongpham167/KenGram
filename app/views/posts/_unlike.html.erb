@@ -1,4 +1,4 @@
 <%= form_for(current_user.active_likes.find_by(post_id: @post.id),
-  html: { method: :delete }) do |f| %>
+  html: { method: :delete }, ,remote: true) do |f| %>
   <%= f.submit t(".submit"), class: "btn" %>
 <% end %>

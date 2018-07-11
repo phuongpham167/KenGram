@@ -67,4 +67,13 @@ class PostsController < ApplicationController
   def post_params
     params.require(:post).permit :caption, :tag, :album_id
   end
+
+  def destroy
+    if @post.destroy
+      flash[:success] = t ".flash_sucess_destroy"
+    else
+      flash[:danger] = t ".flash_danger_destroy"
+    end
+    redirect_to request.referrer || root_url
+  end
 end
