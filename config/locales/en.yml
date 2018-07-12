@@ -18,7 +18,7 @@ en:
     follow:
       follow: "Follow"
     unfollow:
-      unfollow: "Unfollow"  
+      unfollow: "Unfollow"
     create:
       success: "Welcome to the KenGram"
     form:
@@ -51,7 +51,7 @@ en:
       submit: "Login"
       remember: "Remember me on this computer"
     form_sign_up:
-      submit: "Sign Up"    
+      submit: "Sign Up"
     show:
       name: "Name: "
       email: "Email: "
@@ -78,7 +78,7 @@ en:
       save: "Save"
     unbookmark:
       unsave: "Un Save"
-    post:  
+    post:
       like: "Like"
       unlike: "UnLike"
     show_like:
@@ -115,6 +115,23 @@ en:
       more: "Show"
       unlike: "Unlike"
       like: "Like"
+      cmt_here: "Comment here"
+      submit: "Comment"
+  post_comments:
+    create:
+      success: "Comment success"
+      danger: "Comment failed"
+    update:
+      success: "Update success"
+      danger: "Update failed"
+    destroy:
+      success: "Delete comment success"
+    post_comment:
+      delete: "Delete"
+      confirm: "Are you sure?"
+      edit: "Edit"
+      update: "Update"
+      close: "Close"
   post_attachment:
     _form:
       notice: "prohibited this post_attachment from being saved:"

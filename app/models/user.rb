@@ -7,6 +7,8 @@ class User < ApplicationRecord
   has_many :active_bookmarks, class_name:  Bookmark.name,
     foreign_key: "user_id", dependent: :destroy
   has_many :user_bookmarks, through: :active_bookmarks, source: :post
+  has_many :post_comments, dependent: :destroy
+
   attr_accessor :remember_token
   before_save :downcase_email
 
@@ -25,7 +27,7 @@ class User < ApplicationRecord
   has_many :passive_relationships, class_name: Relationship.name,
     foreign_key: :following_id, dependent: :destroy
   has_many :followers, through: :passive_relationships, source: :follower
-  has_many :followings, through: :active_relationships, source: :following 
+  has_many :followings, through: :active_relationships, source: :following
 
   def self.digest string
     min_cost = BCrypt::Engine::MIN_COST
@@ -75,7 +77,7 @@ class User < ApplicationRecord
   def bookmark? post_id
     user_bookmarks.include? post_id
   end
-  
+
   def follow other_user
     followings << other_user
   end

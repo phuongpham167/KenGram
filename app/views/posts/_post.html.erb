@@ -19,7 +19,6 @@
     </ul>
   </div>
   <div>
-
   </div>
   <div class="stats">
     <a href="<%= post_like_post_path(post.id) %>">
@@ -41,5 +40,27 @@
       <%= f.submit t("posts.bookmark.save"), class: "btn btn-primary" %>
     <% end %>
   <% end %>
+  </div>
+  <div class="comments">
+    <div class="row contentcmt">
+      <span id="entry-comment<%= post.id %>">
+        <%= render post.post_comments %>
+      </span>
+    </div>
+    <div class="row newcmt">
+      <span id="form-status">
+      <%= form_for PostComment.new do |f| %>
+        <div class="col-lg-2">
+          <%= link_to gravatar_for(current_user), current_user %>
+        </div>
+        <div class="field col-lg-8">
+          <%= f.hidden_field :post_id, value: post.id %>
+          <%= f.hidden_field :user_id, value: current_user.id %>
+          <%= f.text_area :content, placeholder: t(".cmt_here"), class: "form-control" %>
+        </div>
+        <%= f.submit t(".submit"), class: "btn btn-primary"  %>
+        <% end %>
+      </span>
+    </div>
   </div>
 </li>
