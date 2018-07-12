@@ -13,4 +13,6 @@ album:
   name:
     max_length: 140
   caption:
-    max_length: 200    
+    max_length: 200
+post_comment:
+  max_content:  140

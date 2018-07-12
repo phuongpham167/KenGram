@@ -15,7 +15,7 @@ Rails.application.routes.draw do
       get :user_like, :user_bookmark, :followings, :followers
     end
   end
-  
+
   resources :posts do
     member do
       get :post_like, :followings, :followers
@@ -28,4 +28,5 @@ Rails.application.routes.draw do
   resources :likes, only: [:create, :destroy]
   resources :bookmarks, only: [:create, :destroy]
   resources :relationships, only: [:create, :destroy]
+  resources :post_comments
 end

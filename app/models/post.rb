@@ -9,6 +9,7 @@ class Post < ApplicationRecord
   has_many :passive_bookmarks, class_name:  Bookmark.name,
     foreign_key: "post_id", dependent: :destroy
   has_many :post_bookmarks, through: :passive_bookmarks, source: :user
+  has_many :post_comments, dependent: :destroy
 
   validates :user_id, presence: true
 

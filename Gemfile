@@ -24,6 +24,8 @@ gem "uglifier", "3.2.0"
 gem "carrierwave"
 gem "flex-slider-rails"
 gem "kaminari"
+gem "private_pub"
+gem "thin"
 
 group :development, :test do
   gem "byebug", "9.0.6", platform: :mri
